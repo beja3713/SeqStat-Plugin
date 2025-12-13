@@ -9,10 +9,10 @@ Check it is up using localhost:8080.
 ## Using Python
 Run `pip install -r requirements.txt` to install the requirements. Then run `FLASK_APP=app python -m flask run`. A flask module will run at localhost:5000/.
 
-# Using SeqStat with a teminal
-Bellow are some terminal commands wich can be used to access a webpage instance of a SynBioHub part and run it through the plugin. Note that My file location is 
+# Using SeqStat with a terminal
+Bellow are some terminal commands wich can be used to access a webpage instance of a SynBioHub part and run it through the plugin. Note that my file location is 
 /Users/benjacobsen/Desktop/Plugin-Visual-Test/output.html
-That must be change for any other instance of this plugin being ran. Also the plugin folder is now called "SeqStat-Plugin"
+That must be changed for any other instance of this plugin being ran. Also the plugin folder is now called "SeqStat-Plugin"
 
 FLASK_APP=app
 
