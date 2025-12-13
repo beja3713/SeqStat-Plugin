@@ -1,0 +1,89 @@
+<!-- templates/sequence.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: monospace;
+            margin: 2em;
+            background: #f8f9fa;
+            color: #333;
+        }
+        h1 {
+            font-family: Arial, sans-serif;
+        }
+        .meta {
+            font-family: Arial, sans-serif;
+            margin-bottom: 1em;
+        }
+        .sequence-container {
+            background: #000;
+            border: 1px solid #ccc;
+            padding: 1em;
+            border-radius: 5px;
+            overflow-x: auto;
+            white-space: nowrap;
+            max-width: 100%;
+            margin-bottom: 2em;
+        }
+        .sequence-container span {
+            font-size: 20px;
+            line-height: 1.6;
+            color: inherit;
+        }
+        .promoter-table {
+            font-family: Arial, sans-serif;
+            border-collapse: collapse;
+            margin-top: 2em;
+            width: 100%;
+        }
+        .promoter-table th, .promoter-table td {
+            border: 1px solid #ccc;
+            padding: 0.5em 1em;
+            text-align: left;
+        }
+        .promoter-table th {
+            background-color: #e9ecef;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gene Sequence Visualization</h1>
+    <div class="meta">
+        <p><b>Top Level URL:</b> <a href="{{ top_level_url }}">{{ top_level_url }}</a></p>
+        <p><b>Instance:</b> <a href="{{ instance_url }}">{{ instance_url }}</a></p>
+        <p><b>Type:</b> {{ rdf_type }}</p>
+        <p><b>Sequence Length:</b> {{ sequence_length }} bases</p>
+    </div>
+    <div class="sequence-container">{{ dna_seq_color | safe }}</div>
+    <div class="sequence-container">{{ amino_seq_color | safe }}</div>
+
+    {% if promoter_hits %}
+    <h2>Predicted Promoters</h2>
+    <table class="promoter-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Sigma Factor</th>
+                <th>-10 Position</th>
+                <th>-35 Position</th>
+                <th>Score</th>
+                <th>Gene</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for hit in promoter_hits %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ hit.sigma }}</td>
+                <td>{{ hit.pos10 }}</td>
+                <td>{{ hit.pos35 }}</td>
+                <td>{{ "%.2f"|format(hit.score) }}</td>
+                <td>{{ hit.gene }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+</body>
+</html>

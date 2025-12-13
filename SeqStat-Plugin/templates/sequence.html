@@ -1,0 +1,161 @@
+<!-- templates/sequence.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: monospace;
+            margin: 2em;
+            background: #f8f9fa;
+            color: #333;
+        }
+        h1 {
+            font-family: Arial, sans-serif;
+        }
+        .meta {
+            font-family: Arial, sans-serif;
+            margin-bottom: 1em;
+        }
+        .sequence-container {
+            background: #000;
+            border: 1px solid #ccc;
+            padding: 1em;
+            border-radius: 5px;
+            overflow-x: auto;
+            white-space: nowrap;
+            max-width: 100%;
+            margin-bottom: 2em;
+        }
+        .sequence-container span {
+            font-size: 20px;
+            line-height: 1.6;
+            color: inherit;
+        }
+
+        /* Accordion styles */
+        .accordion-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5em;
+            margin-top: 2em;
+            align-items: flex-start; /* independent heights */
+        }
+        .accordion-item {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: #fff;
+            width: 115px;   /* slimmer boxes */
+            display: flex;
+            flex-direction: column;
+        }
+        .accordion-header {
+            background: #e9ecef;
+            text-align: center;
+            font-weight: bold;
+            padding: 0.5em;
+            cursor: pointer;
+        }
+        .accordion-subheader {
+            text-align: center;
+            padding: 0.25em;
+            font-size: 0.9em;
+            background: #f5f5f5;
+        }
+        .accordion-content {
+            display: none;
+            flex-direction: column;
+            padding: 0.5em;
+            border-top: 1px solid #ccc;
+        }
+        .hit-entry {
+            margin-bottom: 0.5em;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gene Sequence Visualization</h1>
+    <div class="meta">
+        <p><b>Top Level URL:</b> <a href="{{ top_level_url }}">{{ top_level_url }}</a></p>
+        <p><b>Instance:</b> <a href="{{ instance_url }}">{{ instance_url }}</a></p>
+        <p><b>Type:</b> {{ rdf_type }}</p>
+        <p><b>Sequence Length:</b> {{ sequence_length }} bases</p>
+    </div>
+    <div class="sequence-container">{{ dna_seq_color | safe }}</div>
+    <div class="sequence-container">{{ amino_seq_color | safe }}</div>
+
+    <div class="meta">
+        <p><b>Machine Learning Prediction</b> promoter probability: {{ ml_prob }}</p>
+    </div>
+
+
+    <h2>Promoter Consensus Scores</h2>
+    <div class="accordion-section">
+        {% for entry in global_score_list[:10] %}
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion('global{{ loop.index }}')">
+                {{ entry.score }}
+            </div>
+            <div class="accordion-subheader">
+                {{ entry.promoters|length }} promoter{% if entry.promoters|length != 1 %}s{% endif %}
+            </div>
+            <div class="accordion-content" id="global{{ loop.index }}">
+                {% for promoter in entry.promoters %}
+                <div class="hit-entry">{{ promoter }}</div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    </div>
+    <div class="stats">
+        <p>Mean: {{ global_stats.mean }},
+            Median: {{ global_stats.median }},
+            Mode: {{ global_stats.mode }},
+            Standard Deviation: {{ global_stats.stdev }},
+            Range: {{ global_stats.range }}</p>
+    </div>
+
+    <h2>Promoter Hits</h2>
+    <div class="accordion-section">
+        {% for col in score_columns[:10] %}
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion('score{{ loop.index }}')">
+                {{ col.score }}
+            </div>
+            <div class="accordion-subheader">
+                {{ col.hits|length }} hit{% if col.hits|length != 1 %}s{% endif %}
+            </div>
+            <div class="accordion-content" id="score{{ loop.index }}">
+                {% for hit in col.hits %}
+                <div class="hit-entry">
+                    <b>{{ hit.Promoter }}</b><br>
+                    Box: {{ hit.Box }}<br>
+                    Position: {{ hit.Position }}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="stats">
+        <p>Mean: {{ hit_stats.mean }}, 
+            Median: {{ hit_stats.median }}, 
+            Mode: {{ hit_stats.mode }}, 
+            Standard Deviation: {{ hit_stats.stdev }}, 
+            Range: {{ hit_stats.range }}</p>
+    </div>
+
+    <script>
+    function toggleAccordion(id) {
+        const content = document.getElementById(id);
+        if (content.style.display === "flex") {
+            content.style.display = "none";
+        } else {
+            content.style.display = "flex";
+        }
+    }
+
+</script>
+</body>
+</html>

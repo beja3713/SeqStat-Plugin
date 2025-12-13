@@ -1,0 +1,1103 @@
+<!-- templates/sequence.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: monospace;
+            margin: 2em;
+            background: #f8f9fa;
+            color: #333;
+        }
+        h1 {
+            font-family: Arial, sans-serif;
+        }
+        .meta {
+            font-family: Arial, sans-serif;
+            margin-bottom: 1em;
+        }
+        .sequence-container {
+            background: #000;
+            border: 1px solid #ccc;
+            padding: 1em;
+            border-radius: 5px;
+            overflow-x: auto;
+            white-space: nowrap;
+            max-width: 100%;
+            margin-bottom: 2em;
+        }
+        .sequence-container span {
+            font-size: 20px;
+            line-height: 1.6;
+            color: inherit;
+        }
+
+        /* Accordion styles */
+        .accordion-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5em;
+            margin-top: 2em;
+            align-items: flex-start; /* independent heights */
+        }
+        .accordion-item {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: #fff;
+            width: 115px;   /* slimmer boxes */
+            display: flex;
+            flex-direction: column;
+        }
+        .accordion-header {
+            background: #e9ecef;
+            text-align: center;
+            font-weight: bold;
+            padding: 0.5em;
+            cursor: pointer;
+        }
+        .accordion-subheader {
+            text-align: center;
+            padding: 0.25em;
+            font-size: 0.9em;
+            background: #f5f5f5;
+        }
+        .accordion-content {
+            display: none;
+            flex-direction: column;
+            padding: 0.5em;
+            border-top: 1px solid #ccc;
+        }
+        .hit-entry {
+            margin-bottom: 0.5em;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gene Sequence Visualization</h1>
+    <div class="meta">
+        <p><b>Top Level URL:</b> <a href="https://synbiohub.org/public/igem/BBa_K1444011/1">https://synbiohub.org/public/igem/BBa_K1444011/1</a></p>
+        <p><b>Instance:</b> <a href="https://synbiohub.org/">https://synbiohub.org/</a></p>
+        <p><b>Type:</b> Component</p>
+        <p><b>Sequence Length:</b> 318 bases</p>
+    </div>
+    <div class="sequence-container"><span style="color:green;">G</span><span style="color:green;">G</span><span style="color:red;">A</span><span style="color:green;">G</span><span style="color:blue;">T</span><span style="color:blue;">T</span><span style="color:yellow;">C</span><span style="color:blue;">T</span><span style="color:green;">G</span><span style="color:red;">A</span><span style="color:green;">G</span><span style="color:red;">A</span><span style="color:red;">A</span><span style="color:blue;">T</span><span style="color:blue;">T</span><span style="color:green;">G</span><span style="color:green;">G</span><span style="color:blue;">T</span><span style="color:red;">A</span><span style="color:blue;">T</span><span style="color:green;">G</span><span style="color:yellow;">C</span><span style="color:yellow;">C</span><span style="color:blue;">T</span><span style="color:blue;">T</span><span style="color:red;">A</span><span style="color:blue;">T</span><span style="color:red;">A</span><span style="color:red;">A</span><span style="color:green;">G</span><span style="color:blue;">T</span><span style="color:yellow;">C</span><span style="color:yellow;">C</span><span style="color:red;">A</span><span style="color:red;">A</span><span style="color:blue;">T</span><span style="color:blue;">T</span><span style="color:red;">A</span><span style="color:red;">A</span><span style="color:yellow;">C</span><span style="color:red;">A</span><span style="color:green;">G</span><span style="color:blue;">T</span><span style="color:blue;">T</span><span style="color:green;">G</span><span style="color:red;">A</span><span style="color:red;">A</span><span style="color:red;">A</span><span style="color:red;">A</span><span style="color:yellow;">C</span><span style="color:yellow;">C</span><span style="color:blue;">T</span><span style="color:green;">G</span><span style="color:yellow;">C</span><span style="color:red;">A</span><span style="color:blue;">T</span><span style="color:red;">A</span><span style="color:green;">G</span><span style="color:green;">G</span><span style="color:red;">A</span><span style="color:green;">G</span><span style="color:red;">A</span><span style="color:green;">G</span><span style="color:yellow;">C</span><span style="color:blue;">T</span><span style="color:red;">A</span><span style="color:blue;">T</span><span style="color:green;">G</span><span style="color:yellow;">C</span><span style="color:green;">G</span><span style="color:green;">G</span><span style="color:green;">G</span><span style="color:blue;">T</span><span style="color:blue;">T</span><span style="color:blue;">T</span><span style="color:blue;">T</span><span style="color:blue;">T</span><span style="color:blue;">T</span><span style="color:red;">A</span><span style="color:blue;">T</span><span style="color:blue;">T</span><span style="color:blue;">T</span><span style="color:blue;">T</span><span style="color:red;">A</span><span style="color:yellow;">C</span><span style="color:red;">A</span><span style="color:blue;">T</span><span style="color:red;">A</span><span style="color:red;">A</span><span style="color:blue;">T</span><span style="color:green;">G</span><span style="color:red;">A</span><span style="color:blue;">T</span><span style="color:red;">A</span><span style="color:yellow;">C</span><span style="color:red;">A</span><span style="color:blue;">T</span><span style="color:red;">A</span><span style="color:red;">A</span><span style="color:blue;">T</span><span style="color:blue;">T</span><span style="color:blue;">T</span><span style="color:red;">A</span><span style="color:yellow;">C</span><span style="color:yellow;">C</span><span style="color:green;">G</span><span style="color:red;">A</span><span style="color:red;">A</span><span style="color:red;">A</span><span style="color:yellow;">C</span><span style="color:blue;">T</span><span style="color:blue;">T</span><span style="color:green;">G</span><span style="color:yellow;">C</span><span style="color:green;">G</span><span style="color:green;">G</span><span style="color:red;">A</span><span style="color:red;">A</span><span style="color:yellow;">C</span><span style="color:red;">A</span><span style="color:blue;">T</span><span style="color:red;">A</span><span style="color:red;">A</span><span style="color:blue;">T</span><span style="color:blue;">T</span><span style="color:green;">G</span><span style="color:red;">A</span><span style="color:green;">G</span><span style="color:green;">G</span><span style="color:red;">A</span><span style="color:red;">A</span><span style="color:blue;">T</span><span style="color:yellow;">C</span><span style="color:red;">A</span><span style="color:blue;">T</span><span style="color:red;">A</span><span style="color:green;">G</span><span style="color:red;">A</span><span style="color:red;">A</span><span style="color:blue;">T</span><span style="color:blue;">T</span><span style="color:blue;">T</span><span style="color:blue;">T</span><span style="color:green;">G</span><span style="color:blue;">T</span><span style="color:yellow;">C</span><span style="color:red;">A</span><span style="color:red;">A</span><span style="color:red;">A</span><span style="color:red;">A</span><span style="color:blue;">T</span><span style="color:red;">A</span><span style="color:red;">A</span><span style="color:blue;">T</span><span style="color:blue;">T</span><span style="color:blue;">T</span><span style="color:blue;">T</span><span style="color:red;">A</span><span style="color:blue;">T</span><span style="color:blue;">T</span><span style="color:green;">G</span><span style="color:red;">A</span><span style="color:yellow;">C</span><span style="color:red;">A</span><span style="color:red;">A</span><span style="color:yellow;">C</span><span style="color:green;">G</span><span style="color:blue;">T</span><span style="color:yellow;">C</span><span style="color:blue;">T</span><span style="color:blue;">T</span><span style="color:red;">A</span><span style="color:blue;">T</span><span style="color:blue;">T</span><span style="color:red;">A</span><span style="color:red;">A</span><span style="color:yellow;">C</span><span style="color:green;">G</span><span style="color:blue;">T</span><span style="color:blue;">T</span><span style="color:green;">G</span><span style="color:red;">A</span><span style="color:blue;">T</span><span style="color:red;">A</span><span style="color:blue;">T</span><span style="color:red;">A</span><span style="color:red;">A</span><span style="color:blue;">T</span><span style="color:blue;">T</span><span style="color:blue;">T</span><span style="color:red;">A</span><span style="color:red;">A</span><span style="color:red;">A</span><span style="color:blue;">T</span><span style="color:blue;">T</span><span style="color:blue;">T</span><span style="color:blue;">T</span><span style="color:red;">A</span><span style="color:blue;">T</span><span style="color:blue;">T</span><span style="color:blue;">T</span><span style="color:green;">G</span><span style="color:red;">A</span><span style="color:yellow;">C</span><span style="color:red;">A</span><span style="color:red;">A</span><span style="color:red;">A</span><span style="color:red;">A</span><span style="color:red;">A</span><span style="color:blue;">T</span><span style="color:green;">G</span><span style="color:green;">G</span><span style="color:green;">G</span><span style="color:yellow;">C</span><span style="color:blue;">T</span><span style="color:yellow;">C</span><span style="color:green;">G</span><span style="color:blue;">T</span><span style="color:green;">G</span><span style="color:blue;">T</span><span style="color:blue;">T</span><span style="color:green;">G</span><span style="color:blue;">T</span><span style="color:red;">A</span><span style="color:yellow;">C</span><span style="color:red;">A</span><span style="color:red;">A</span><span style="color:blue;">T</span><span style="color:red;">A</span><span style="color:red;">A</span><span style="color:red;">A</span><span style="color:blue;">T</span><span style="color:green;">G</span><span style="color:blue;">T</span><span style="color:red;">A</span><span style="color:green;">G</span><span style="color:blue;">T</span><span style="color:blue;">T</span><span style="color:red;">A</span><span style="color:yellow;">C</span><span style="color:blue;">T</span><span style="color:red;">A</span><span style="color:green;">G</span><span style="color:red;">A</span><span style="color:green;">G</span><span style="color:blue;">T</span><span style="color:yellow;">C</span><span style="color:yellow;">C</span><span style="color:yellow;">C</span><span style="color:blue;">T</span><span style="color:red;">A</span><span style="color:blue;">T</span><span style="color:yellow;">C</span><span style="color:red;">A</span><span style="color:green;">G</span><span style="color:blue;">T</span><span style="color:green;">G</span><span style="color:red;">A</span><span style="color:blue;">T</span><span style="color:red;">A</span><span style="color:green;">G</span><span style="color:red;">A</span><span style="color:green;">G</span><span style="color:red;">A</span><span style="color:blue;">T</span><span style="color:blue;">T</span><span style="color:green;">G</span><span style="color:red;">A</span><span style="color:yellow;">C</span><span style="color:red;">A</span><span style="color:blue;">T</span><span style="color:yellow;">C</span><span style="color:yellow;">C</span><span style="color:yellow;">C</span><span style="color:blue;">T</span><span style="color:red;">A</span><span style="color:blue;">T</span><span style="color:yellow;">C</span><span style="color:red;">A</span><span style="color:green;">G</span><span style="color:blue;">T</span><span style="color:green;">G</span><span style="color:red;">A</span><span style="color:blue;">T</span><span style="color:red;">A</span><span style="color:green;">G</span><span style="color:red;">A</span><span style="color:green;">G</span><span style="color:red;">A</span><span style="color:blue;">T</span><span style="color:red;">A</span><span style="color:yellow;">C</span><span style="color:blue;">T</span><span style="color:green;">G</span><span style="color:red;">A</span><span style="color:green;">G</span><span style="color:yellow;">C</span><span style="color:red;">A</span><span style="color:yellow;">C</span><span style="color:blue;">T</span><span style="color:red;">A</span><span style="color:yellow;">C</span><span style="color:blue;">T</span><span style="color:red;">A</span><span style="color:green;">G</span><span style="color:red;">A</span><span style="color:green;">G</span><span style="color:red;">A</span><span style="color:red;">A</span><span style="color:red;">A</span><span style="color:green;">G</span><span style="color:green;">G</span><span style="color:red;">A</span><span style="color:green;">G</span><span style="color:green;">G</span><span style="color:blue;">T</span><span style="color:green;">G</span><span style="color:blue;">T</span></div>
+    <div class="sequence-container"><span style="color:darkgrey;">G</span><span style="color:salmon;">V</span><span style="color:lightgreen;">L</span><span style="color:darkgoldenrod;">R</span><span style="color:yellow;">I</span><span style="color:darkgrey;">G</span><span style="color:orange;">M</span><span style="color:blue;">P</span><span style="color:darkorange;">Y</span><span style="color:darkgreen;">K</span><span style="color:orchid;">S</span><span style="color:mediumblue;">N</span><span style="color:white;">*</span><span style="color:darkorchid;">Q</span><span style="color:lightgreen;">L</span><span style="color:darkgreen;">K</span><span style="color:green;">T</span><span style="color:firebrick;">C</span><span style="color:yellow;">I</span><span style="color:darkgrey;">G</span><span style="color:chocolate;">E</span><span style="color:lightgreen;">L</span><span style="color:firebrick;">C</span><span style="color:darkgrey;">G</span><span style="color:lightblue;">F</span><span style="color:lightblue;">F</span><span style="color:yellow;">I</span><span style="color:lightgreen;">L</span><span style="color:red;">H</span><span style="color:mediumblue;">N</span><span style="color:goldenrod;">D</span><span style="color:green;">T</span><span style="color:white;">*</span><span style="color:lightblue;">F</span><span style="color:green;">T</span><span style="color:chocolate;">E</span><span style="color:green;">T</span><span style="color:firebrick;">C</span><span style="color:darkgrey;">G</span><span style="color:green;">T</span><span style="color:white;">*</span><span style="color:lightgreen;">L</span><span style="color:darkgoldenrod;">R</span><span style="color:mediumblue;">N</span><span style="color:red;">H</span><span style="color:darkgoldenrod;">R</span><span style="color:yellow;">I</span><span style="color:lightgreen;">L</span><span style="color:orchid;">S</span><span style="color:darkgreen;">K</span><span style="color:white;">*</span><span style="color:lightblue;">F</span><span style="color:darkorange;">Y</span><span style="color:white;">*</span><span style="color:darkorchid;">Q</span><span style="color:darkgoldenrod;">R</span><span style="color:lightgreen;">L</span><span style="color:yellow;">I</span><span style="color:mediumblue;">N</span><span style="color:salmon;">V</span><span style="color:goldenrod;">D</span><span style="color:yellow;">I</span><span style="color:yellow;">I</span><span style="color:white;">*</span><span style="color:yellow;">I</span><span style="color:lightgreen;">L</span><span style="color:lightblue;">F</span><span style="color:goldenrod;">D</span><span style="color:darkgreen;">K</span><span style="color:mediumblue;">N</span><span style="color:darkgrey;">G</span><span style="color:lightgreen;">L</span><span style="color:salmon;">V</span><span style="color:lightgreen;">L</span><span style="color:darkorange;">Y</span><span style="color:mediumblue;">N</span><span style="color:darkgreen;">K</span><span style="color:firebrick;">C</span><span style="color:orchid;">S</span><span style="color:darkorange;">Y</span><span style="color:white;">*</span><span style="color:orchid;">S</span><span style="color:blue;">P</span><span style="color:darkorange;">Y</span><span style="color:darkorchid;">Q</span><span style="color:white;">*</span><span style="color:white;">*</span><span style="color:darkgoldenrod;">R</span><span style="color:lightgreen;">L</span><span style="color:green;">T</span><span style="color:orchid;">S</span><span style="color:lightgreen;">L</span><span style="color:orchid;">S</span><span style="color:salmon;">V</span><span style="color:yellow;">I</span><span style="color:chocolate;">E</span><span style="color:yellow;">I</span><span style="color:lightgreen;">L</span><span style="color:orchid;">S</span><span style="color:green;">T</span><span style="color:green;">T</span><span style="color:darkgoldenrod;">R</span><span style="color:chocolate;">E</span><span style="color:darkgoldenrod;">R</span><span style="color:darkgoldenrod;">R</span><span style="color:firebrick;">C</span></div>
+
+    <div class="meta">
+        <p><b>Machine Learning Prediction:</b> promoter probability: 0.69</p>
+    </div>
+
+
+    <h2>Promoter Consensus Scores</h2>
+    <div class="accordion-section">
+        
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion('global1')">
+                0.24
+            </div>
+            <div class="accordion-subheader">
+                1 promoter
+            </div>
+            <div class="accordion-content" id="global1">
+                
+                <div class="hit-entry">-10 sdsNp1</div>
+                
+            </div>
+        </div>
+        
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion('global2')">
+                0.18
+            </div>
+            <div class="accordion-subheader">
+                1 promoter
+            </div>
+            <div class="accordion-content" id="global2">
+                
+                <div class="hit-entry">-10 osmBp1</div>
+                
+            </div>
+        </div>
+        
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion('global3')">
+                0.13
+            </div>
+            <div class="accordion-subheader">
+                2 promoters
+            </div>
+            <div class="accordion-content" id="global3">
+                
+                <div class="hit-entry">-10 acsp2</div>
+                
+                <div class="hit-entry">-10 acsp</div>
+                
+            </div>
+        </div>
+        
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion('global4')">
+                0.11
+            </div>
+            <div class="accordion-subheader">
+                10 promoters
+            </div>
+            <div class="accordion-content" id="global4">
+                
+                <div class="hit-entry">-35 yncBp4</div>
+                
+                <div class="hit-entry">-35 fumDp6</div>
+                
+                <div class="hit-entry">-35 yeaOp4</div>
+                
+                <div class="hit-entry">-35 yfbLp7</div>
+                
+                <div class="hit-entry">-35 ygcWp11</div>
+                
+                <div class="hit-entry">-35 ydeIp1</div>
+                
+                <div class="hit-entry">-35 ydiYp6</div>
+                
+                <div class="hit-entry">-35 yfcIp8</div>
+                
+                <div class="hit-entry">-35 alaEp1</div>
+                
+                <div class="hit-entry">-35 tdcRp8</div>
+                
+            </div>
+        </div>
+        
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion('global5')">
+                0.1
+            </div>
+            <div class="accordion-subheader">
+                29 promoters
+            </div>
+            <div class="accordion-content" id="global5">
+                
+                <div class="hit-entry">-35 ycfZp6</div>
+                
+                <div class="hit-entry">-35 azoRp8</div>
+                
+                <div class="hit-entry">-35 yodBp13</div>
+                
+                <div class="hit-entry">-35 idip10</div>
+                
+                <div class="hit-entry">-35 tusBp7</div>
+                
+                <div class="hit-entry">-35 yghFp</div>
+                
+                <div class="hit-entry">-10 sibAp</div>
+                
+                <div class="hit-entry">-10 sibCp</div>
+                
+                <div class="hit-entry">-10 cydAp3</div>
+                
+                <div class="hit-entry">-10 insHp3</div>
+                
+                <div class="hit-entry">-10 ycaMp3</div>
+                
+                <div class="hit-entry">-10 yccXp5</div>
+                
+                <div class="hit-entry">-10 yeaIp5</div>
+                
+                <div class="hit-entry">-10 yhjBp4</div>
+                
+                <div class="hit-entry">-10 yiaTp6</div>
+                
+                <div class="hit-entry">-10 grxCp2</div>
+                
+                <div class="hit-entry">-10 yihVp3</div>
+                
+                <div class="hit-entry">-10 dksAp3</div>
+                
+                <div class="hit-entry">-10 cpxRp</div>
+                
+                <div class="hit-entry">-10 uxaCp2</div>
+                
+                <div class="hit-entry">-10 ubiCp</div>
+                
+                <div class="hit-entry">-10 narKp2</div>
+                
+                <div class="hit-entry">-10 trpSp</div>
+                
+                <div class="hit-entry">-10 ydePp</div>
+                
+                <div class="hit-entry">-35 tsxp2</div>
+                
+                <div class="hit-entry">-10 gapAp1</div>
+                
+                <div class="hit-entry">-10 xapRp1</div>
+                
+                <div class="hit-entry">-10 aroKp2</div>
+                
+                <div class="hit-entry">-10 yjeFp3</div>
+                
+            </div>
+        </div>
+        
+    </div>
+    </div>
+    <div class="stats">
+        <p>Mean: 0.108837,
+            Median: 0.1,
+            Mode: 0.1,
+            Standard Deviation: 0.024612,
+            Range: 0.14</p>
+    </div>
+
+    <h2>Promoter Hits</h2>
+    <div class="accordion-section">
+        
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion('score1')">
+                7.49
+            </div>
+            <div class="accordion-subheader">
+                2 hits
+            </div>
+            <div class="accordion-content" id="score1">
+                
+                <div class="hit-entry">
+                    <b>sdsNp1</b><br>
+                    Box: -10<br>
+                    Position: 89
+                </div>
+                
+                <div class="hit-entry">
+                    <b>ttdRp</b><br>
+                    Box: -10<br>
+                    Position: 70
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion('score2')">
+                6.49
+            </div>
+            <div class="accordion-subheader">
+                2 hits
+            </div>
+            <div class="accordion-content" id="score2">
+                
+                <div class="hit-entry">
+                    <b>sdsNp1</b><br>
+                    Box: -10<br>
+                    Position: 177
+                </div>
+                
+                <div class="hit-entry">
+                    <b>sdsNp1</b><br>
+                    Box: -10<br>
+                    Position: 115
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion('score3')">
+                6.46
+            </div>
+            <div class="accordion-subheader">
+                2 hits
+            </div>
+            <div class="accordion-content" id="score3">
+                
+                <div class="hit-entry">
+                    <b>murQp</b><br>
+                    Box: -10<br>
+                    Position: 180
+                </div>
+                
+                <div class="hit-entry">
+                    <b>osmBp1</b><br>
+                    Box: -10<br>
+                    Position: 161
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion('score4')">
+                6.14
+            </div>
+            <div class="accordion-subheader">
+                1 hit
+            </div>
+            <div class="accordion-content" id="score4">
+                
+                <div class="hit-entry">
+                    <b>csgDp</b><br>
+                    Box: -10<br>
+                    Position: 260
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion('score5')">
+                5.49
+            </div>
+            <div class="accordion-subheader">
+                8 hits
+            </div>
+            <div class="accordion-content" id="score5">
+                
+                <div class="hit-entry">
+                    <b>ttdRp</b><br>
+                    Box: -10<br>
+                    Position: 69
+                </div>
+                
+                <div class="hit-entry">
+                    <b>sdsNp1</b><br>
+                    Box: -10<br>
+                    Position: 184
+                </div>
+                
+                <div class="hit-entry">
+                    <b>sdsNp1</b><br>
+                    Box: -10<br>
+                    Position: 188
+                </div>
+                
+                <div class="hit-entry">
+                    <b>sdsNp1</b><br>
+                    Box: -10<br>
+                    Position: 120
+                </div>
+                
+                <div class="hit-entry">
+                    <b>ttdRp</b><br>
+                    Box: -10<br>
+                    Position: 267
+                </div>
+                
+                <div class="hit-entry">
+                    <b>sdsNp1</b><br>
+                    Box: -10<br>
+                    Position: 131
+                </div>
+                
+                <div class="hit-entry">
+                    <b>sdsNp1</b><br>
+                    Box: -10<br>
+                    Position: 229
+                </div>
+                
+                <div class="hit-entry">
+                    <b>sdsNp1</b><br>
+                    Box: -10<br>
+                    Position: 219
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion('score6')">
+                5.46
+            </div>
+            <div class="accordion-subheader">
+                23 hits
+            </div>
+            <div class="accordion-content" id="score6">
+                
+                <div class="hit-entry">
+                    <b>artPp2</b><br>
+                    Box: -10<br>
+                    Position: 151
+                </div>
+                
+                <div class="hit-entry">
+                    <b>arrSp2</b><br>
+                    Box: -10<br>
+                    Position: 235
+                </div>
+                
+                <div class="hit-entry">
+                    <b>pdhRp2</b><br>
+                    Box: -10<br>
+                    Position: 72
+                </div>
+                
+                <div class="hit-entry">
+                    <b>gapAp</b><br>
+                    Box: -10<br>
+                    Position: 72
+                </div>
+                
+                <div class="hit-entry">
+                    <b>ydhYp</b><br>
+                    Box: -10<br>
+                    Position: 161
+                </div>
+                
+                <div class="hit-entry">
+                    <b>luxSp1</b><br>
+                    Box: -10<br>
+                    Position: 177
+                </div>
+                
+                <div class="hit-entry">
+                    <b>ftsQp</b><br>
+                    Box: -10<br>
+                    Position: 177
+                </div>
+                
+                <div class="hit-entry">
+                    <b>gadYp</b><br>
+                    Box: -10<br>
+                    Position: 122
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yadVp2</b><br>
+                    Box: -10<br>
+                    Position: 180
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yeiLp</b><br>
+                    Box: -10<br>
+                    Position: 230
+                </div>
+                
+                <div class="hit-entry">
+                    <b>ftsBp</b><br>
+                    Box: -10<br>
+                    Position: 217
+                </div>
+                
+                <div class="hit-entry">
+                    <b>dnaNp5</b><br>
+                    Box: -10<br>
+                    Position: 140
+                </div>
+                
+                <div class="hit-entry">
+                    <b>rpoHp2</b><br>
+                    Box: -10<br>
+                    Position: 215
+                </div>
+                
+                <div class="hit-entry">
+                    <b>idlPp</b><br>
+                    Box: -10<br>
+                    Position: 70
+                </div>
+                
+                <div class="hit-entry">
+                    <b>osmBp1</b><br>
+                    Box: -10<br>
+                    Position: 146
+                </div>
+                
+                <div class="hit-entry">
+                    <b>tolCp4</b><br>
+                    Box: -10<br>
+                    Position: 188
+                </div>
+                
+                <div class="hit-entry">
+                    <b>dnaNp5</b><br>
+                    Box: -10<br>
+                    Position: 111
+                </div>
+                
+                <div class="hit-entry">
+                    <b>idlPp</b><br>
+                    Box: -10<br>
+                    Position: 267
+                </div>
+                
+                <div class="hit-entry">
+                    <b>osmFp1</b><br>
+                    Box: -10<br>
+                    Position: 191
+                </div>
+                
+                <div class="hit-entry">
+                    <b>gadYp</b><br>
+                    Box: -10<br>
+                    Position: 161
+                </div>
+                
+                <div class="hit-entry">
+                    <b>talAp1</b><br>
+                    Box: -10<br>
+                    Position: 256
+                </div>
+                
+                <div class="hit-entry">
+                    <b>lsrAp</b><br>
+                    Box: -10<br>
+                    Position: 81
+                </div>
+                
+                <div class="hit-entry">
+                    <b>ilvYp2</b><br>
+                    Box: -10<br>
+                    Position: 110
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion('score7')">
+                5.1
+            </div>
+            <div class="accordion-subheader">
+                3 hits
+            </div>
+            <div class="accordion-content" id="score7">
+                
+                <div class="hit-entry">
+                    <b>ompNp</b><br>
+                    Box: -10<br>
+                    Position: 126
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yabIp</b><br>
+                    Box: -10<br>
+                    Position: 142
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yffOp</b><br>
+                    Box: -10<br>
+                    Position: 48
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion('score8')">
+                4.82
+            </div>
+            <div class="accordion-subheader">
+                9 hits
+            </div>
+            <div class="accordion-content" id="score8">
+                
+                <div class="hit-entry">
+                    <b>sdsNp2</b><br>
+                    Box: -10<br>
+                    Position: 79
+                </div>
+                
+                <div class="hit-entry">
+                    <b>sdsNp2</b><br>
+                    Box: -10<br>
+                    Position: 251
+                </div>
+                
+                <div class="hit-entry">
+                    <b>sdsNp2</b><br>
+                    Box: -10<br>
+                    Position: 276
+                </div>
+                
+                <div class="hit-entry">
+                    <b>ptsHp</b><br>
+                    Box: -35<br>
+                    Position: 246
+                </div>
+                
+                <div class="hit-entry">
+                    <b>ptsHp</b><br>
+                    Box: -35<br>
+                    Position: 271
+                </div>
+                
+                <div class="hit-entry">
+                    <b>sdsNp2</b><br>
+                    Box: -10<br>
+                    Position: 35
+                </div>
+                
+                <div class="hit-entry">
+                    <b>sdsNp2</b><br>
+                    Box: -10<br>
+                    Position: 60
+                </div>
+                
+                <div class="hit-entry">
+                    <b>sdsNp2</b><br>
+                    Box: -10<br>
+                    Position: 219
+                </div>
+                
+                <div class="hit-entry">
+                    <b>sdsNp2</b><br>
+                    Box: -10<br>
+                    Position: 229
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion('score9')">
+                4.78
+            </div>
+            <div class="accordion-subheader">
+                2 hits
+            </div>
+            <div class="accordion-content" id="score9">
+                
+                <div class="hit-entry">
+                    <b>treFp</b><br>
+                    Box: -10<br>
+                    Position: 265
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yqjCp</b><br>
+                    Box: -10<br>
+                    Position: 178
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion('score10')">
+                4.75
+            </div>
+            <div class="accordion-subheader">
+                66 hits
+            </div>
+            <div class="accordion-content" id="score10">
+                
+                <div class="hit-entry">
+                    <b>caiEp5</b><br>
+                    Box: -35<br>
+                    Position: 41
+                </div>
+                
+                <div class="hit-entry">
+                    <b>ampDp5</b><br>
+                    Box: -10<br>
+                    Position: 129
+                </div>
+                
+                <div class="hit-entry">
+                    <b>mmuPp1</b><br>
+                    Box: -10<br>
+                    Position: 200
+                </div>
+                
+                <div class="hit-entry">
+                    <b>fsrp9</b><br>
+                    Box: -35<br>
+                    Position: 41
+                </div>
+                
+                <div class="hit-entry">
+                    <b>ybhHp8</b><br>
+                    Box: -10<br>
+                    Position: 200
+                </div>
+                
+                <div class="hit-entry">
+                    <b>elfDp1</b><br>
+                    Box: -35<br>
+                    Position: 114
+                </div>
+                
+                <div class="hit-entry">
+                    <b>ydcAp6</b><br>
+                    Box: -35<br>
+                    Position: 145
+                </div>
+                
+                <div class="hit-entry">
+                    <b>cspFp8</b><br>
+                    Box: -10<br>
+                    Position: 249
+                </div>
+                
+                <div class="hit-entry">
+                    <b>cspFp8</b><br>
+                    Box: -10<br>
+                    Position: 274
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yniAp7</b><br>
+                    Box: -10<br>
+                    Position: 249
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yniAp7</b><br>
+                    Box: -10<br>
+                    Position: 274
+                </div>
+                
+                <div class="hit-entry">
+                    <b>kdgRp8</b><br>
+                    Box: -10<br>
+                    Position: 3
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yeeOp6</b><br>
+                    Box: -10<br>
+                    Position: 36
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yeiWp7</b><br>
+                    Box: -10<br>
+                    Position: 142
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yfbKp7</b><br>
+                    Box: -10<br>
+                    Position: 129
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yfiRp7</b><br>
+                    Box: -35<br>
+                    Position: 41
+                </div>
+                
+                <div class="hit-entry">
+                    <b>ygcGp7</b><br>
+                    Box: -10<br>
+                    Position: 142
+                </div>
+                
+                <div class="hit-entry">
+                    <b>ygeWp1</b><br>
+                    Box: -35<br>
+                    Position: 43
+                </div>
+                
+                <div class="hit-entry">
+                    <b>rsmEp1</b><br>
+                    Box: -10<br>
+                    Position: 129
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yghJp7</b><br>
+                    Box: -35<br>
+                    Position: 41
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yqhAp7</b><br>
+                    Box: -35<br>
+                    Position: 177
+                </div>
+                
+                <div class="hit-entry">
+                    <b>ygiVp3</b><br>
+                    Box: -35<br>
+                    Position: 41
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yqiCp1</b><br>
+                    Box: -10<br>
+                    Position: 249
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yqiCp1</b><br>
+                    Box: -10<br>
+                    Position: 274
+                </div>
+                
+                <div class="hit-entry">
+                    <b>tdcRp8</b><br>
+                    Box: -10<br>
+                    Position: 142
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yhcFp1</b><br>
+                    Box: -10<br>
+                    Position: 200
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yhdHp1</b><br>
+                    Box: -35<br>
+                    Position: 105
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yhdUp1</b><br>
+                    Box: -10<br>
+                    Position: 142
+                </div>
+                
+                <div class="hit-entry">
+                    <b>greBp7</b><br>
+                    Box: -35<br>
+                    Position: 177
+                </div>
+                
+                <div class="hit-entry">
+                    <b>ugpQp1</b><br>
+                    Box: -35<br>
+                    Position: 114
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yhjXp6</b><br>
+                    Box: -10<br>
+                    Position: 3
+                </div>
+                
+                <div class="hit-entry">
+                    <b>zurp7</b><br>
+                    Box: -35<br>
+                    Position: 177
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yjcDp7</b><br>
+                    Box: -35<br>
+                    Position: 41
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yjcOp5</b><br>
+                    Box: -35<br>
+                    Position: 41
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yjfPp5</b><br>
+                    Box: -35<br>
+                    Position: 105
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yjhBp7</b><br>
+                    Box: -10<br>
+                    Position: 249
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yjhBp7</b><br>
+                    Box: -10<br>
+                    Position: 274
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yjiJp4</b><br>
+                    Box: -10<br>
+                    Position: 200
+                </div>
+                
+                <div class="hit-entry">
+                    <b>mmuPp1</b><br>
+                    Box: -10<br>
+                    Position: 171
+                </div>
+                
+                <div class="hit-entry">
+                    <b>ybeRp7</b><br>
+                    Box: -10<br>
+                    Position: 224
+                </div>
+                
+                <div class="hit-entry">
+                    <b>ybhHp8</b><br>
+                    Box: -10<br>
+                    Position: 171
+                </div>
+                
+                <div class="hit-entry">
+                    <b>tdkp1</b><br>
+                    Box: -10<br>
+                    Position: 224
+                </div>
+                
+                <div class="hit-entry">
+                    <b>azoRp6</b><br>
+                    Box: -10<br>
+                    Position: 27
+                </div>
+                
+                <div class="hit-entry">
+                    <b>ydcXp1</b><br>
+                    Box: -10<br>
+                    Position: 224
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yncBp4</b><br>
+                    Box: -35<br>
+                    Position: 234
+                </div>
+                
+                <div class="hit-entry">
+                    <b>ynfAp7</b><br>
+                    Box: -10<br>
+                    Position: 48
+                </div>
+                
+                <div class="hit-entry">
+                    <b>ynfAp7</b><br>
+                    Box: -10<br>
+                    Position: 154
+                </div>
+                
+                <div class="hit-entry">
+                    <b>fumDp6</b><br>
+                    Box: -35<br>
+                    Position: 234
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yeaOp4</b><br>
+                    Box: -35<br>
+                    Position: 234
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yeaQp1</b><br>
+                    Box: -10<br>
+                    Position: 33
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yeaQp1</b><br>
+                    Box: -10<br>
+                    Position: 58
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yeiWp7</b><br>
+                    Box: -10<br>
+                    Position: 113
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yfbLp7</b><br>
+                    Box: -35<br>
+                    Position: 234
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yfjPp5</b><br>
+                    Box: -10<br>
+                    Position: 224
+                </div>
+                
+                <div class="hit-entry">
+                    <b>ygcWp11</b><br>
+                    Box: -35<br>
+                    Position: 120
+                </div>
+                
+                <div class="hit-entry">
+                    <b>ygcWp11</b><br>
+                    Box: -35<br>
+                    Position: 160
+                </div>
+                
+                <div class="hit-entry">
+                    <b>ygcGp7</b><br>
+                    Box: -10<br>
+                    Position: 113
+                </div>
+                
+                <div class="hit-entry">
+                    <b>tdcRp8</b><br>
+                    Box: -10<br>
+                    Position: 113
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yhcFp1</b><br>
+                    Box: -10<br>
+                    Position: 171
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yhdUp1</b><br>
+                    Box: -10<br>
+                    Position: 113
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yhgFp2</b><br>
+                    Box: -10<br>
+                    Position: 29
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yhgFp2</b><br>
+                    Box: -10<br>
+                    Position: 54
+                </div>
+                
+                <div class="hit-entry">
+                    <b>panZp1</b><br>
+                    Box: -10<br>
+                    Position: 224
+                </div>
+                
+                <div class="hit-entry">
+                    <b>frdDp1</b><br>
+                    Box: -10<br>
+                    Position: 224
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yjgZp1</b><br>
+                    Box: -35<br>
+                    Position: 284
+                </div>
+                
+                <div class="hit-entry">
+                    <b>yjiJp4</b><br>
+                    Box: -10<br>
+                    Position: 171
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="stats">
+        <p>Mean: 4.8208, 
+            Median: 4.75, 
+            Mode: 4.46, 
+            Standard Deviation: 0.506411, 
+            Range: 3.03</p>
+    </div>
+
+    <script>
+    function toggleAccordion(id) {
+        const content = document.getElementById(id);
+        if (content.style.display === "flex") {
+            content.style.display = "none";
+        } else {
+            content.style.display = "flex";
+        }
+    }
+
+</script>
+</body>
+</html>
